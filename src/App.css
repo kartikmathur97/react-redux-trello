@@ -1,0 +1,61 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.List {
+  background-color: #DEE3E6;
+  border-radius: 2px;
+  height: 100%;
+  width: 300px;
+  padding: 4px;
+  margin-right: 10px;
+}
+
+.Card {
+  margin: 6px;
+}
+
+.Card.input {
+  overflow: visible;
+  min-height: 50px;
+  padding: 2px 2px;
+}
+
+.ListContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.AddText {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 10px;
+  height: 36px;
+  width: 200px;
+  opacity: 0.7;
+}
+
+.Textarea {
+  overflow: hidden;
+  resize: none;
+  width: 90%;
+  border: none;
+  outline: none;
+}
+
+.AddButton {
+  color: white !important;
+  background-color: #5aac44 !important;
+}
