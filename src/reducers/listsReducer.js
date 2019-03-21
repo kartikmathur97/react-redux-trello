@@ -1,7 +1,8 @@
 import { CONSTANTS } from "../actions";
+import { v4 } from "uuid";
 
-let listID = 2;
-let cardID = 5;
+let listID = v4();
+let cardID = v4();
 
 const initialState = [
     {

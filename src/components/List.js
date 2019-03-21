@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import ActionButton from "./ActionButton";
+import DeleteIcon from '@material-ui/icons/Delete';
 import { Droppable, Draggable } from "react-beautiful-dnd";
 
 const List = ({ title, cards, listID, index }) => {
@@ -8,6 +9,7 @@ const List = ({ title, cards, listID, index }) => {
         <Draggable draggableId={String(listID)} index={index}>
             {provided => (
                 <div {...provided.draggableProps} ref={provided.innerRef} {...provided.dragHandleProps} className="List">
+                    <DeleteIcon className="DeleteButton" />
                     <Droppable droppableId={String(listID)}>
                         {provided => (
                             <div {...provided.droppableProps} ref={provided.innerRef}>

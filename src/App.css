@@ -59,3 +59,7 @@
   color: white !important;
   background-color: #5aac44 !important;
 }
+
+.DeleteButton {
+  float: right;
+}
