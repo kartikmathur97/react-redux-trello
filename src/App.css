@@ -61,11 +61,23 @@
 }
 
 .DeleteButton {
+  padding: 4px;
   opacity: 0.5;
   float: right;
 }
 
 .DeleteButton:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.EditButton {
+  padding: 4px;
+  opacity: 0.5;
+  float: left;
+}
+
+.EditButton:hover {
   opacity: 0.8;
   cursor: pointer;
 }
