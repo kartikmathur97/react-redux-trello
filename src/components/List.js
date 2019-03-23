@@ -37,6 +37,7 @@ const List = React.memo(({ title, cards, listID, index, dispatch }) => {
                       key={card.id}
                       index={index}
                       text={card.text}
+                      desc={card.desc}
                       id={card.id}
                       listID={listID}
                     />

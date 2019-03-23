@@ -11,11 +11,13 @@ const initialState = [
     cards: [
       {
         id: `card-${v4()}`,
-        text: "first item to do"
+        text: "first item to do",
+        desc: "first desc"
       },
       {
         id: `card-${v4()}`,
-        text: "second item to do"
+        text: "second item to do",
+        desc: "second desc"
       }
     ]
   },
@@ -25,15 +27,18 @@ const initialState = [
     cards: [
       {
         id: `card-${v4()}`,
-        text: "first item done"
+        text: "first item done",
+        desc: "first desc"
       },
       {
         id: `card-${v4()}`,
-        text: "second item done"
+        text: "second item done",
+        desc: "second desc"
       },
       {
         id: `card-${v4()}`,
-        text: "third item done"
+        text: "third item done",
+        desc: "third desc"
       }
     ]
   }
@@ -54,6 +59,7 @@ const listsReducer = (state = initialState, action) => {
     case CONSTANTS.ADD_CARD: {
       const newCard = {
         text: action.payload.text,
+        desc: action.payload.desc,
         id: `card-${cardID}`
       };
       cardID = v4();
@@ -121,12 +127,13 @@ const listsReducer = (state = initialState, action) => {
     }
 
     case CONSTANTS.EDIT_CARD: {
-      const { id, listID, newText } = action.payload;
+      const { id, listID, newText, newDesc } = action.payload;
       return state.map(list => {
         if (list.id === listID) {
           const newCards = list.cards.map(card => {
             if (card.id === id) {
               card.text = newText;
+              card.desc = newDesc;
               return card;
             }
             return card;

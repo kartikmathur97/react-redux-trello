@@ -9,9 +9,10 @@ import { Draggable } from "react-beautiful-dnd";
 import { deleteCard, editCard } from "../actions";
 import { connect } from "react-redux";
 
-const Card = React.memo(({ text, id, listID, index, dispatch }) => {
+const Card = React.memo(({ text, desc, id, listID, index, dispatch }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [cardText, setText] = useState(text);
+  const [cardDesc, setDesc] = useState(desc);
 
   const handleDeleteCard = e => {
     dispatch(deleteCard(id, listID));
@@ -21,13 +22,17 @@ const Card = React.memo(({ text, id, listID, index, dispatch }) => {
     setIsEditing(false);
   };
 
-  const handleChange = e => {
+  const handleTitleChange = e => {
     setText(e.target.value);
+  };
+
+  const handleDescChange = e => {
+    setDesc(e.target.value);
   };
 
   const saveCard = e => {
     e.preventDefault();
-    dispatch(editCard(id, listID, cardText));
+    dispatch(editCard(id, listID, cardText, cardDesc));
     setIsEditing(false);
   };
 
@@ -39,14 +44,21 @@ const Card = React.memo(({ text, id, listID, index, dispatch }) => {
             className="Textarea"
             placeholder="Enter card title"
             autoFocus
-            onBlur={closeForm}
             value={cardText}
-            onChange={handleChange}
+            onChange={handleTitleChange}
             onFocus={function(e) {
               var val = e.target.value;
-              e.target.value = '';
+              e.target.value = "";
               e.target.value = val;
             }}
+          />
+          <hr />
+          <Textarea
+            className="Textarea Desc"
+            placeholder="Enter card description"
+            onBlur={closeForm}
+            value={cardDesc}
+            onChange={handleDescChange}
           />
         </MaterialCard>
         <div>
@@ -89,7 +101,19 @@ const Card = React.memo(({ text, id, listID, index, dispatch }) => {
                 edit
               </Icon>
               <CardContent>
-                <Typography gutterBottom>{text}</Typography>
+                <Typography className="Title" gutterBottom>
+                  {text}
+                </Typography>
+                <div>
+                  {desc ? (
+                    <div>
+                      <hr />
+                      <Typography className="Description" gutterBottom>
+                        {desc}
+                      </Typography>
+                    </div>
+                  ) : null}
+                </div>
               </CardContent>
             </MaterialCard>
           </div>

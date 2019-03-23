@@ -28,8 +28,12 @@
 
 .CardContainer.input {
   overflow: visible;
-  min-height: 50px;
+  min-height: 30px;
   padding: 2px 2px;
+}
+
+.CardContainer.input .Textarea.Desc {
+  min-height: 50px;
 }
 
 .ListContainer {
@@ -40,11 +44,15 @@
 .AddText {
   display: flex;
   align-items: center;
-  cursor: pointer;
   padding-left: 10px;
   height: 36px;
   width: 200px;
-  opacity: 0.7;
+  opacity: 0.6;
+}
+
+.AddText:hover {
+  opacity: 0.9;
+  cursor: pointer;
 }
 
 .Textarea {
@@ -58,26 +66,35 @@
 .AddButton {
   color: white !important;
   background-color: #5aac44 !important;
+  margin-bottom: 4px !important;
 }
 
 .DeleteButton {
   padding: 4px;
-  opacity: 0.5;
+  opacity: 0.6;
   float: right;
 }
 
 .DeleteButton:hover {
-  opacity: 0.8;
+  opacity: 0.9;
   cursor: pointer;
 }
 
 .EditButton {
   padding: 4px;
-  opacity: 0.5;
+  opacity: 0.6;
   float: left;
 }
 
 .EditButton:hover {
-  opacity: 0.8;
+  opacity: 0.9;
   cursor: pointer;
+}
+
+.Title {
+  font-weight: 500 !important;
+}
+
+.Description {
+  font-weight: 300 !important;
 }
