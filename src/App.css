@@ -14,7 +14,7 @@
 }
 
 .List {
-  background-color: #DEE3E6;
+  background-color: #dee3e6;
   border-radius: 2px;
   height: 100%;
   width: 300px;
@@ -22,11 +22,11 @@
   margin-right: 10px;
 }
 
-.Card {
+.CardContainer {
   margin: 6px;
 }
 
-.Card.input {
+.CardContainer.input {
   overflow: visible;
   min-height: 50px;
   padding: 2px 2px;
@@ -61,5 +61,11 @@
 }
 
 .DeleteButton {
+  opacity: 0.5;
   float: right;
+}
+
+.DeleteButton:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }

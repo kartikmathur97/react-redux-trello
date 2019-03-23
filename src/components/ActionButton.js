@@ -80,7 +80,7 @@ class ActionButton extends React.Component {
 
         return (
             <div>
-                <MaterialCard className="Card input">
+                <MaterialCard className="CardContainer input">
                     <Textarea className="Textarea" placeholder={placeholder} autoFocus onBlur={this.closeForm} value={this.state.text} onChange={this.handleInputChange} />
                 </MaterialCard>
                 <div>
