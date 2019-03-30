@@ -49,6 +49,7 @@ class App extends PureComponent {
                     index={index}
                   />
                 ))}
+                {provided.placeholder}
                 <ActionButton list />
               </div>
             )}

@@ -122,7 +122,6 @@ const listsReducer = (state = initialState, action) => {
 
     case CONSTANTS.DELETE_LIST: {
       const listID = action.payload;
-      console.log(listID);
       return state.filter(list => list.id !== listID);
     }
 

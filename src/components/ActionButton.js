@@ -109,7 +109,7 @@ class ActionButton extends React.Component {
             )}
           </div>
         </MaterialCard>
-        <div>
+        <div className="AddCloseButton">
           <Button
             className="AddButton"
             onMouseDown={list ? this.handleAddList : this.handleAddCard}
@@ -117,6 +117,13 @@ class ActionButton extends React.Component {
           >
             {buttonTitle}
           </Button>
+          <Icon
+            className="CloseButton"
+            onMouseDown={this.closeForm}
+            fontSize="small"
+          >
+            close
+          </Icon>
         </div>
       </div>
     );

@@ -7,7 +7,7 @@ import { deleteList } from "../actions";
 import { connect } from "react-redux";
 
 const List = React.memo(({ title, cards, listID, index, dispatch }) => {
-  const handleListCard = e => {
+  const handleListDelete = e => {
     dispatch(deleteList(listID));
   };
 
@@ -23,7 +23,7 @@ const List = React.memo(({ title, cards, listID, index, dispatch }) => {
           >
             <Icon
               className="DeleteButton"
-              onMouseDown={handleListCard}
+              onMouseDown={handleListDelete}
               fontSize="small"
             >
               delete

@@ -61,7 +61,7 @@ const Card = React.memo(({ text, desc, id, listID, index, dispatch }) => {
             onChange={handleDescChange}
           />
         </MaterialCard>
-        <div>
+        <div className="AddCloseButton">
           <Button
             className="AddButton"
             onMouseDown={saveCard}
@@ -69,6 +69,13 @@ const Card = React.memo(({ text, desc, id, listID, index, dispatch }) => {
           >
             Save
           </Button>
+          <Icon
+            className="CloseButton"
+            onMouseDown={closeForm}
+            fontSize="small"
+          >
+            close
+          </Icon>
         </div>
       </div>
     );
