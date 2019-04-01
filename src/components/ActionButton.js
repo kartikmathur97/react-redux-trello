@@ -1,7 +1,7 @@
 import React from "react";
 import Icon from "@material-ui/core/Icon";
 import MaterialCard from "@material-ui/core/Card";
-import Textarea from "react-textarea-autosize";
+import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
 import { addList, addCard } from "../actions";
@@ -43,7 +43,8 @@ class ActionButton extends React.Component {
 
     if (text) {
       this.setState({
-        text: ""
+        text: "",
+        formOpen: false
       });
       dispatch(addList(text));
     }
@@ -58,7 +59,8 @@ class ActionButton extends React.Component {
     if (text) {
       this.setState({
         text: "",
-        desc: ""
+        desc: "",
+        formOpen: false
       });
       dispatch(addCard(listID, text, desc));
     }
@@ -67,10 +69,12 @@ class ActionButton extends React.Component {
   renderAddButton = () => {
     const { list } = this.props;
 
-    const buttonText = list ? "Add another list" : "Add another card";
+    const buttonText = list ? "Add new list" : "Add new card";
+
+    const addTextStyle = list ? "AddText list" : "AddText card";
 
     return (
-      <div onClick={this.openForm} className="AddText">
+      <div onClick={this.openForm} className={addTextStyle}>
         <Icon>add</Icon>
         <p>{buttonText}</p>
       </div>
@@ -80,16 +84,19 @@ class ActionButton extends React.Component {
   renderForm = () => {
     const { list } = this.props;
 
-    const placeholder = list ? "Enter list title" : "Enter card title";
-
     const buttonTitle = list ? "Add List" : "Add Card";
+
+    const cardStyle = list
+      ? "CardContainer input list"
+      : "CardContainer input card";
 
     return (
       <div>
-        <MaterialCard className="CardContainer input">
-          <Textarea
+        <MaterialCard className={cardStyle}>
+          <TextField
             className="Textarea"
-            placeholder={placeholder}
+            margin="normal"
+            label="Title"
             autoFocus
             value={this.state.text}
             onChange={this.handleTitleChange}
@@ -98,9 +105,10 @@ class ActionButton extends React.Component {
             {list ? null : (
               <div>
                 <hr />
-                <Textarea
+                <TextField
                   className="Textarea Desc"
-                  placeholder="Enter card description"
+                  margin="normal"
+                  label="Description"
                   value={this.state.desc}
                   onBlur={this.closeForm}
                   onChange={this.handleDescChange}

@@ -2,6 +2,39 @@
   text-align: center;
 }
 
+.App h2 {
+  color: white;
+}
+
+.App h2.BoardTitle {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.AddBoardPaper {
+  margin-top: 5px;
+  width: 160px;
+  padding: 10px;
+}
+
+.AddBoardPaper .CreateBoardText {
+  padding-bottom: 8px;
+}
+
+.AddBoardPaper .CreateBoardButton {
+  color: white !important;
+  background-color: #5aac44 !important;
+}
+
+.BoardAddIcon {
+  opacity: 0.6;
+}
+
+.BoardAddIcon:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
 .List {
   background-color: #dee3e6;
   border-radius: 2px;
@@ -13,16 +46,18 @@
 
 .CardContainer {
   margin: 6px;
+  margin-bottom: 8px;
 }
 
 .CardContainer.input {
+  width: 284px;
   overflow: visible;
   min-height: 30px;
   padding: 2px 2px;
 }
 
-.CardContainer.input .Textarea.Desc {
-  min-height: 50px;
+.CardContainer.input.list {
+  margin-top: 0px;
 }
 
 .ListContainer {
@@ -33,16 +68,23 @@
 .AddText {
   display: flex;
   align-items: center;
-  padding-left: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 6px;
   height: 36px;
-  width: 200px;
+  width: 284px;
   opacity: 0.6;
-  transition: opacity 0.3s ease-in-out;
+  background-color: rgba(0,0,0,.15);
+  border-radius: 8px;
 }
 
 .AddText:hover {
   opacity: 0.9;
   cursor: pointer;
+}
+
+.AddText.list {
+  color: white;
 }
 
 .Textarea {
@@ -72,7 +114,6 @@
   padding: 4px;
   opacity: 0.6;
   float: right;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .DeleteButton:hover {
@@ -84,7 +125,6 @@
   padding: 4px;
   opacity: 0.6;
   float: left;
-  transition: opacity 0.2s ease-in-out;
 }
 
 .EditButton:hover {
@@ -97,7 +137,6 @@
   opacity: 0.6;
   margin-top: 4px;
   margin-left: 6px;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .CloseButton:hover {

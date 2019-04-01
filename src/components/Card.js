@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import CardContent from "@material-ui/core/CardContent";
 import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
-import Textarea from "react-textarea-autosize";
+import TextField from "@material-ui/core/TextField";
 import { Draggable } from "react-beautiful-dnd";
 import { deleteCard, editCard } from "../actions";
 import { connect } from "react-redux";
@@ -40,9 +40,10 @@ const Card = React.memo(({ text, desc, id, listID, index, dispatch }) => {
     return (
       <div>
         <MaterialCard className="CardContainer input">
-          <Textarea
+          <TextField
             className="Textarea"
-            placeholder="Enter card title"
+            margin="normal"
+            label="Title"
             autoFocus
             value={cardText}
             onChange={handleTitleChange}
@@ -53,9 +54,10 @@ const Card = React.memo(({ text, desc, id, listID, index, dispatch }) => {
             }}
           />
           <hr />
-          <Textarea
+          <TextField
             className="Textarea Desc"
-            placeholder="Enter card description"
+            margin="normal"
+            label="Description"
             onBlur={closeForm}
             value={cardDesc}
             onChange={handleDescChange}
