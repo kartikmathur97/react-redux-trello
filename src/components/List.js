@@ -22,16 +22,16 @@ const List = React.memo(({ title, cards, listID, index, dispatch }) => {
             className="List"
           >
             <Icon
-              className="DeleteButton"
+              className="DeleteButton list"
               onMouseDown={handleListDelete}
               fontSize="small"
             >
               delete
             </Icon>
+            <h4>{title}</h4>
             <Droppable droppableId={String(listID)} type="card">
               {provided => (
                 <div {...provided.droppableProps} ref={provided.innerRef}>
-                  <h4>{title}</h4>
                   {cards.map((card, index) => (
                     <Card
                       key={card.id}

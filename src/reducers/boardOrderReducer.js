@@ -7,6 +7,10 @@ const boardOrderReducer = (state = initialState, action) => {
     case CONSTANTS.ADD_BOARD: {
       return [...state, `board-${action.payload.id}`];
     }
+    case CONSTANTS.DELETE_BOARD: {
+      const boardID = action.payload;
+      return state.filter(id => id !== boardID);
+    }
     default:
       return state;
   }

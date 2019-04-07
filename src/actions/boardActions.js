@@ -15,3 +15,10 @@ export const setActiveBoard = id => {
     payload: id
   };
 };
+
+export const deleteBoard = boardID => {
+  return {
+    type: CONSTANTS.DELETE_BOARD,
+    payload: boardID
+  }
+}

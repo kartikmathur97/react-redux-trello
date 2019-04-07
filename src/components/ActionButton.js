@@ -90,6 +90,10 @@ class ActionButton extends React.Component {
       ? "CardContainer input list"
       : "CardContainer input card";
 
+      const buttonsStyle = list
+      ? "AddCloseButton list"
+      : "AddCloseButton";
+
     return (
       <div>
         <MaterialCard className={cardStyle}>
@@ -117,7 +121,7 @@ class ActionButton extends React.Component {
             )}
           </div>
         </MaterialCard>
-        <div className="AddCloseButton">
+        <div className={buttonsStyle}>
           <Button
             className="AddButton"
             onMouseDown={list ? this.handleAddList : this.handleAddCard}

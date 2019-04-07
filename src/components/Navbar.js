@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { AppBar, Tabs, Tab, Button, Popper, Paper } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import AddIcon from "@material-ui/icons/Add";
+import Icon from "@material-ui/core/Icon";
+import { deleteBoard } from "../actions";
 
 const Navbar = ({ boards, boardOrder, dispatch }) => {
   const [newBoardTitle, setNewBoardTitle] = useState("");
@@ -29,17 +31,30 @@ const Navbar = ({ boards, boardOrder, dispatch }) => {
     setFormOpen(!formOpen);
   };
 
+  const handleBoardDelete = e => {
+    dispatch(deleteBoard(e));
+  };
+
   const renderTabs = () => {
     return boardOrder.map(boardID => {
       const board = boards[boardID];
       return (
-        <Link
-          key={boardID}
-          to={`/${board.id}`}
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <Tab label={board.title} />
-        </Link>
+        <div className="BoardTab">
+          <Icon
+            className="DeleteButton board"
+            onMouseDown={() => handleBoardDelete(boardID)}
+            fontSize="small"
+          >
+            delete
+          </Icon>
+          <Link
+            key={boardID}
+            to={`/${board.id}`}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <Tab label={board.title} />
+          </Link>
+        </div>
       );
     });
   };
@@ -55,11 +70,15 @@ const Navbar = ({ boards, boardOrder, dispatch }) => {
             scrollButtons="auto"
           >
             {renderTabs()}
-            <Tab className="BoardAddIcon" icon={<AddIcon />} onMouseDown={handleOpenAdd} />
+            <Tab
+              className="BoardAddIcon"
+              icon={<AddIcon />}
+              onMouseDown={handleOpenAdd}
+            />
           </Tabs>
         </AppBar>
         <Popper open={formOpen} anchorEl={anchorEl} placement="bottom-start">
-          <Paper className="AddBoardPaper" elevation="6">
+          <Paper className="AddBoardPaper" elevation={6}>
             <TextField
               className="CreateBoardText"
               label="Board title"

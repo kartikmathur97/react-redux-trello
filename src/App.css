@@ -35,29 +35,57 @@
   cursor: pointer;
 }
 
+.BoardTab {
+  position: relative;
+}
+
+.BoardTab:hover .DeleteButton.board {
+  display: block;
+  z-index: 2;
+}
+
 .List {
+  position: relative;
   background-color: #dee3e6;
   border-radius: 2px;
   height: 100%;
   width: 300px;
   padding: 4px;
   margin-right: 10px;
+  border-radius: 5px;
+}
+
+.List:hover .DeleteButton.list {
+  display: block;
 }
 
 .CardContainer {
-  margin: 6px;
+  position: relative;
+  margin-left: 6px;
+  margin-right: 6px;
   margin-bottom: 8px;
+}
+
+.CardContainer:hover .EditButton {
+  display: block;
+}
+
+.CardContainer:hover .DeleteButton {
+  display: block;
 }
 
 .CardContainer.input {
   width: 284px;
   overflow: visible;
   min-height: 30px;
-  padding: 2px 2px;
+  padding: 2px;
 }
 
 .CardContainer.input.list {
-  margin-top: 0px;
+  width: 300px;
+  padding: 4px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .ListContainer {
@@ -68,13 +96,13 @@
 .AddText {
   display: flex;
   align-items: center;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 6px;
+  margin-right: 6px;
   margin-bottom: 6px;
   height: 36px;
-  width: 284px;
+  width: 288px;
   opacity: 0.6;
-  background-color: rgba(0,0,0,.15);
+  background-color: rgba(0, 0, 0, 0.15);
   border-radius: 8px;
 }
 
@@ -84,6 +112,9 @@
 }
 
 .AddText.list {
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 300px;
   color: white;
 }
 
@@ -110,10 +141,17 @@
   margin: 6px;
 }
 
+.AddCloseButton.list {
+  margin: 0px;
+}
+
 .DeleteButton {
+  display: none;
   padding: 4px;
   opacity: 0.6;
-  float: right;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 
 .DeleteButton:hover {
@@ -122,9 +160,12 @@
 }
 
 .EditButton {
+  display: none;
   padding: 4px;
   opacity: 0.6;
-  float: left;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 .EditButton:hover {
